@@ -22,7 +22,7 @@ public class CatTest {
 
 
     @Test
-    public void testGetSoundTest() {
+    public void callGetSoundShouldReturnStringMay() {
         Cat cat = new Cat(feline);
         String actualSound = cat.getSound();
         String expectedSound = "Мяу";
@@ -31,10 +31,10 @@ public class CatTest {
     }
 
     @Test
-    public void testGetFoodTest() throws Exception {
+    public void callGetFoodShouldReturnListOfFoodOfHunterType() throws Exception {
         Cat cat = new Cat(feline);
         Mockito.when(feline.eatMeat()).thenReturn(List.of("Говядина", "Курица", "Индейка"));
-        List<String> actual = cat.getFood();
+        List <String> actual = cat.getFood();
         assertEquals(List.of("Говядина", "Курица", "Индейка"), actual);
         }
 }

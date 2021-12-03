@@ -23,7 +23,7 @@ public class FelineParameterizedTest {
     }
 
     @Test
-    public void shouldCheckGetKittensCall() {
+    public void callCheckGetKittensWithThreeParameters() {
         Feline feline = new Feline();
         Integer actual = feline.getKittens(number);
         assertEquals(expected, actual);

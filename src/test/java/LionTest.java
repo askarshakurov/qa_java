@@ -1,4 +1,3 @@
-import com.example.Animal;
 import com.example.Feline;
 import com.example.Lion;
 import org.junit.Assert;
@@ -25,11 +24,8 @@ public class LionTest {
     @Mock
     private Feline feline;
 
-    @Mock
-    private Animal animal;
-
     @Test
-    public void maleTrueHasManeCall() throws Exception {
+    public void callFunctionHasManeWithSexMaleShouldBeTrue() throws Exception {
         Lion lion = new Lion("Самец", feline);
         boolean actualHasMane = lion.doesHaveMane();
         boolean expectedHasMane = true;
@@ -37,7 +33,7 @@ public class LionTest {
         assertEquals(actualHasMane, expectedHasMane);
     }
     @Test
-    public void maleExceptionWrongType()  {
+    public void callFunctionHasManeWithWrongTypeShouldGetException()  {
         try {
             Lion lion = new Lion("Сам", feline);
             lion.doesHaveMane();
@@ -47,7 +43,7 @@ public class LionTest {
     }
 
     @Test
-    public void femaleTrueHasMane() throws Exception {
+    public void callFunctionHasManeWithSexFemaleShouldBeFalse() throws Exception {
         Lion lion = new Lion("Самка", feline);
         boolean actualHasMane = lion.doesHaveMane();
         boolean expectedHasMane = false;
@@ -56,7 +52,7 @@ public class LionTest {
     }
 
     @Test
-    public void predatorTypeGetFoodCall() throws  Exception {
+    public void callFunctionGetFoodShouldReturnListOfFoodOfHunterType() throws  Exception {
         Lion lion = new Lion("Самец", feline);
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Говядина", "Курица", "Индейка"));
         List<String> actualList = lion.getFood();
@@ -65,7 +61,7 @@ public class LionTest {
     }
 
     @Test
-    public void getKittensCall() throws Exception {
+    public void callGetKittensShouldReturnValueOne() throws Exception {
         Lion lion = new Lion("Самка", feline);
         Mockito.when(feline.getKittens()).thenReturn(1);
         Integer actualNumber = lion.getKittens();
